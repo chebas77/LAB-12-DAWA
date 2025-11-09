@@ -1,12 +1,12 @@
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
 // =====================================================
 // GET – Obtener un libro específico por ID
 // =====================================================
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> | { id: string } }
 ) {
   try {
     const bookId = (await params).id
@@ -38,8 +38,8 @@ export async function GET(
 // PUT – Actualizar un libro
 // =====================================================
 export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> | { id: string } }
 ) {
   try {
     const bookId = (await params).id
@@ -128,8 +128,8 @@ export async function PUT(
 // DELETE – Eliminar un libro
 // =====================================================
 export async function DELETE(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> | { id: string } }
 ) {
   try {
     const bookId = (await params).id

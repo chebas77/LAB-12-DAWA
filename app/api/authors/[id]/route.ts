@@ -1,12 +1,12 @@
-import { NextResponse } from 'next/server'
+import { NextResponse, NextRequest } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
 // =====================================================
 // GET – Obtener un autor específico por ID
 // =====================================================
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> | { id: string } }
 ) {
   try {
     const authorId = (await params).id
@@ -43,8 +43,8 @@ export async function GET(
 // PUT – Actualizar un autor
 // =====================================================
 export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> | { id: string } }
 ) {
   try {
     const authorId = (await params).id
@@ -100,8 +100,8 @@ export async function PUT(
 // DELETE – Eliminar un autor
 // =====================================================
 export async function DELETE(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> | { id: string } }
 ) {
   try {
     const authorId = (await params).id
