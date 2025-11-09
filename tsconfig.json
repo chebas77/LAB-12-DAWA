@@ -18,8 +18,11 @@
         "name": "next"
       }
     ],
+
+    // 🔧 IMPORTANTE: agrega esta línea
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["*"]
     }
   },
   "include": [

@@ -24,3 +24,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Theme overrides when user forces a preference */
+.theme-dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+.theme-light {
+  --background: #ffffff;
+  --foreground: #171717;
+}
